@@ -1,0 +1,51 @@
+#kivy 1.9
+
+<TextSetting@BoxLayout>:
+    orientation: "horizontal"
+    size_hint: 1.0, 0.2
+    str_Label: '(no caption)'
+    str_TextInput: '(empty)'
+    Label:
+        size_hint: 0.3, .5
+        pos_hint: {"x": 0.5}
+        text: root.str_Label
+    TextInput:
+        id: txt
+        size_hint: 0.7, .5
+        text: root.str_TextInput
+
+Root:
+    BoxLayout:
+        size_hint: 1.0, 0.9
+        pos_hint: {"x": 0, "y": 0.1 }
+        orientation: "vertical"
+        Button:
+            text: "Print text properties of firstSetting."
+            size_hint: 0.3, 0.2
+            on_release: root.show_stuff(firstSetting)
+        Button:
+            text: "Print IDs in root"
+            size_hint: 0.3, 0.2
+            on_release: root.show_ids(root.ids)
+        TextSetting:
+            id: firstSetting
+            str_Label: 'example1'
+            str_TextInput: 'yeah!'
+        TextSetting:
+            id: secondSetting
+        TextSetting:
+            id: thirdSetting
+    Button:
+        text: 'Compile'
+        size_hint: 0.3, 0.1
+        pos_hint: {"x": 0, "y": 0}
+    Button:
+        text: 'Split'
+        disabled: True
+        pos_hint: {"x": 0.3, "y": 0}
+        size_hint: 0.4, 0.1
+    Button:
+        text: 'Load'
+        size_hint: 0.3, 0.1
+        pos_hint: {"x": 0.7, "y": 0}
+
